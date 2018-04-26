@@ -24,7 +24,6 @@ export class ConnexionComponent implements  OnInit {
   ngOnInit() {
     
     }
-
 }
 
 

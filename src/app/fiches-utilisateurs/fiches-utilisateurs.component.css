@@ -1,0 +1,31 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#carte {
+    background-color: ghostwhite;
+    padding: 1em;
+    width: 50%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.photodesc {
+    background-color: white;
+    border-radius: 0.5em;
+    margin: 0.7em;
+}
+
+.commentaire {
+    margin: 1.5em;
+    color: dimgray;
+}
+
+#depliant {
+    visibility: visible; /*collapse pour pas le voir*/
+}
+
+#lover {
+    color: firebrick;
+}
+
