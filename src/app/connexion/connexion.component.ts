@@ -6,7 +6,7 @@ import * as $ from 'jquery' ;
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.css']
 })
-export class ConnexionComponent implements OnInit {
+export class ConnexionComponent implements  OnInit {
 
   constructor() { }
   showModal: boolean = false ;
@@ -16,6 +16,11 @@ export class ConnexionComponent implements OnInit {
     console.log("showModal");
   }
 
+  onCloseModal()
+ {
+   this.showModal = false ; 
+    console.log("showModal");
+ }
   ngOnInit() {
     
     }

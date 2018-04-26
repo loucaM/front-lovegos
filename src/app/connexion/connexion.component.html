@@ -1,7 +1,9 @@
 <div class="connexion-container">
 
     <div class="modal-connect" *ngIf="showModal"  >
-        <i class="close icon"></i>
+       <div><i class="close icon" (click)="onCloseModal()"></i></div> 
+        <form class="ui form">
+        <div class="ui stacked segment">
         <div class="ui grid">
             <div class="eight wide column">
                 <div class="ui grid">
@@ -30,54 +32,60 @@
                           </div>
                     </div>
                 </div>
-                <div class="ui selection dropdown">
-                    <input name="card[type]" type="hidden">
-                    <div class="default text">Type</div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                      <div class="item" data-value="visa">
-                        <i class="visa icon"></i>
-                        Visa
-                      </div>
-                      <div class="item" data-value="amex">
-                        <i class="amex icon"></i>
-                        American Express
-                      </div>
-                      <div class="item" data-value="discover">
-                        <i class="discover icon"></i>
-                        Discover
-                      </div>
-                    </div>
+                <select class="ui selection dropdown" >
+                <option value="" disabled selected>Sexe</option>
+                <option value="h">Homme</option>
+                <option value="f">Femme</option>
+                <option value="other">Autre</option>
+                </select>
+                <div class="field">
+                    <label>Présente toi</label>
+                    <textarea rows="3"></textarea>
                   </div>
-          
-           
-
-
-         
-                
+    
             </div>
             <div class="eight wide column">
-               
+                <select class="ui selection dropdown" >
+                    <option value="" disabled selected>Je recherche...</option>
+                    <option value="h">Homme</option>
+                    <option value="f">Femme</option>
+                    <option value="other">tout</option>
+                  </select>
+                  <select class="ui selection dropdown" >
+                      <option value="" disabled selected>Age</option>
+                      <option value="jeune">jeune</option>
+                      <option value="moyen">milf</option>
+                      <option value="++">Autre</option>
+                    </select>
+
+                    <div class="field">
+                        <label>Centre d'intérêt</label>
+                        <select multiple="" class="ui dropdown">
+                          <option value="">Select Country</option>
+                          <option value="AF">Afghanistan</option>
+                          <option value="AX">Åland Islands</option>
+                          <option value="AL">Albania</option>
+                          <option value="DZ">Algeria</option>
+                          <option value="AS">American Samoa</option>
+                          <option value="AD">Andorra</option>
+                          <option value="AO">Angola</option>
+                          <option value="AI">Anguilla</option>
+                        </select>
+                      </div>
             </div>
+
         </div>
        
         <div class="image content">
        
-          <div class="description">
-            <div class="ui header">We've auto-chosen a profile image for you.</div>
-            <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-            <p>Is it okay to use this photo?</p>
-          </div>
+
         </div>
         <div class="actions">
-          <div class="ui black deny button">
-            Nope
-          </div>
-          <div class="ui positive right labeled icon button">
-            Yep, that's me
-            <i class="checkmark icon"></i>
-          </div>
+            <button class="fluid ui blue button">Fits container</button>
+            
         </div>
+        </div>
+      </form>
       </div>
 
 
