@@ -29,3 +29,10 @@
     color: firebrick;
 }
 
+.espacement {
+    height: 10%;
+}
+
+.espacement-bottom {
+    margin-top: 20px;
+}

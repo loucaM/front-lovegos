@@ -1,3 +1,5 @@
+
+<script>$('#multi-select').dropdown();</script>
 <div class="connexion-container">
 
     <div class="modal-connect" *ngIf="showModal"  >
@@ -57,10 +59,10 @@
                       <option value="moyen">milf</option>
                       <option value="++">Autre</option>
                     </select>
-
+                    
                     <div class="field">
                         <label>Centre d'intérêt</label>
-                        <select multiple="" class="ui dropdown">
+                        <select multiple="" class="ui dropdown" id="multi-select">
                           <option value="">Select Country</option>
                           <option value="AF">Afghanistan</option>
                           <option value="AX">Åland Islands</option>
@@ -105,7 +107,9 @@
                 <input type="password" name="password" placeholder="Password">
             </div>
             </div>
-            <div class="ui fluid large teal submit button">Login</div>
+            <div class="ui fluid large teal submit button">
+                <a routerLink="/suggestion" class="link-connect">Login</a>       
+            </div>
         </div>
     
         <div class="ui error message"></div>
