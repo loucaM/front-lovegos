@@ -1,64 +1,74 @@
 <div class="espacement"></div>
-
-<div *ngFor="let person of people; let i = index"  (click)="onShowPresentation(i)" >
-<div class="content"  >
-    <div id="outerspacingfiche">
-    <div class="ui one cards">
-        <div class="red card" id="carte">
-            <div class="ui grid">
-                <div class="four wide column , photodesc">
-                  <div class="image">
-                    <img class="left floated tiny ui image" src="./assets/images/homme.jpg">
-                  </div>
-                  <div class="content">
-                      <a class="header">{{person.name}}</a>
-                      <div class="meta">
-                        <span class="date">Joined in 2013</span>
+<div class="ui grid">
+  <div class="two wide column"></div>
+  <div class="ten wide column">
+        <div *ngFor="let person of people; let i = index"  (click)="onShowPresentation(i)" >
+                <div class="content"  >
+                    <div id="outerspacingfiche">
+                    <div class="ui one cards">
+                        <div class="red card" id="carte">
+                            <div class="ui grid">
+                                <div class="four wide column , photodesc">
+                                  <div class="image">
+                                    <img class="left floated tiny ui image" src="./assets/images/homme.jpg">
+                                  </div>
+                                  <div class="content">
+                                      <a class="header">{{person.name}}</a>
+                                      <div class="meta">
+                                        <span class="date">Joined in 2013</span>
+                                      </div>
+                                      <div class="description">
+                                        Kristy is an art director living in New York.
+                                      </div>
+                                    </div>
+                                </div>     
+                                <div class="four wide column">
+                                    <ul class="ui list">
+                                        <li>Espagnol b2</li>
+                                        <li>Brésilien a1</li>
+                                        <li>Swahili c2</li>
+                                    </ul>
+                                </div>
+                                <div class="four wide column">
+                                  Age
+                                </div>
+                                <div class="three wide column">
+                                  geoloc
+                                </div>
+                              </div>
+                              <div id="depliant" *ngIf="showMessage[i]">
+                              <div class="ui text container , commentaire , bottom">
+                                  <p>I'm here to tell you something, and you will probably read me first. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                              </div>
+                              <div class="ui grid , bottom">
+                                  <div class="center aligned two column row">
+                                    <div class="column" id="lover">
+                                      Mange tes morts ♥
+                                    </div>
+                                    <div class="column">
+                                        <button class="ui basic red button" id="contactbutton">
+                                            <i class="comments outline icon"></i>
+                                            contact
+                                          </button>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
                       </div>
-                      <div class="description">
-                        Kristy is an art director living in New York.
-                      </div>
+                    </div>
                     </div>
                 </div>
-
-
-                <div class="four wide column">
-                    <ul class="ui list">
-                        <li>Espagnol b2</li>
-                        <li>Brésilien a1</li>
-                        <li>Swahili c2</li>
-                    </ul>
+                <div class="espacement-bottom"></div>
                 </div>
-                <div class="four wide column">
-                  Age
-                </div>
-                <div class="three wide column">
-                  geoloc
-                </div>
-              </div>
-              <div id="depliant" *ngIf="showMessage[i]">
-              <div class="ui text container , commentaire , bottom">
-                  <p>I'm here to tell you something, and you will probably read me first. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-              </div>
-
-              <div class="ui grid , bottom">
-                 <div class="center aligned two column row">
-                    <div class="column" id="lover">
-                      Mange tes morts ♥
-                    </div>
-                    <div class="column">
-                        <button class="ui basic red button" id="contactbutton">
-                            <i class="comments outline icon"></i>
-                            contact
-                          </button>
-                    </div>
-                  </div>
-                
-              </div>
-            </div>
-      </div>
-    </div>
-    </div>
+  </div>
+  <div class="four wide column">
+    <app-contact-messagerie></app-contact-messagerie>
+  </div>
 </div>
-<div class="espacement-bottom"></div>
-</div>
+
+
+
+
+
+
+

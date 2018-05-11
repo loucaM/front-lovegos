@@ -9,6 +9,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
+import { ContactMessagerieComponent } from './contact-messagerie/contact-messagerie.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ROUTES } from './app.routes';
     HeaderComponent,
     FichesUtilisateursComponent,
     HomePageComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ContactMessagerieComponent,
+    MessagesComponent
 
   ],
   imports: [

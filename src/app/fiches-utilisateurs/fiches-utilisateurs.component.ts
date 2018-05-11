@@ -17,7 +17,6 @@ export class FichesUtilisateursComponent implements OnInit {
     } else {
       this.showMessage[index] = false ;
     }
-    this.showMessage[index] ? false : true ;
     console.log(index);
     console.log(this.showMessage[index]);
 
