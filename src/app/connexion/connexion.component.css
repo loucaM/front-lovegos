@@ -1,5 +1,5 @@
 .connexion-container{
-    background-image: url("/assets/images/love.jpg");
+    background-image: url("/assets/images/fleurs.jpg");
     height: 100%;
     width: 100%;
     background-size: 100%;
@@ -11,8 +11,9 @@
 .form-container {
     
     margin-top: 20%;
-    margin-left: auto;
-    margin-right: auto;
+/*     margin-left: auto;
+    margin-right: auto; */
+    margin-left: 60%;
     width: 300px;
 }
 
@@ -24,8 +25,8 @@
     background-color: white;
     border-radius: 5px;
     box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.75);
-   
 }
+
 
 .link-connect {
     color: white;

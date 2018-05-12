@@ -1,3 +1,51 @@
-<p>
-  messages works!
-</p>
+<div class="espacement"></div>
+<div class="ui grid">
+  <div class="two wide column"></div>
+  <div class="ten wide column">
+    <div *ngFor="let message of messages; let i = index">
+    <div class="ui comments">
+      <h3 class="ui dividing header">{{message.titre}}</h3>
+      <div class="comment">
+        <a class="avatar">
+          <img src="/images/avatar/small/matt.jpg">
+        </a>
+        <div class="content">
+          <a class="author">{}</a>
+          <div class="metadata">
+            <span class="date">{{message.messages(i).dateEnvoi | date:'fullDate'}}</span>
+          </div>
+          <div class="text">
+           {{message.messages(i).contenu}}
+          </div>
+          <div class="actions">
+            <a class="reply">Reply</a>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div> 
+  <form class="ui reply form">
+        <div class="field">
+          <textarea></textarea>
+        </div>
+        <div class="ui blue labeled submit icon button">
+          <i class="icon edit"></i> Add Reply
+        </div>
+      </form>
+  </div>
+  <div class="four wide column">
+    <app-contact-messagerie></app-contact-messagerie>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
