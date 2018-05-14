@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactMessagerieComponent implements OnInit {
 
+  personnes: any [];
   constructor() { }
 
   ngOnInit() {
+    this.personnes =  [
+      {
+        "name": "Douglas  Pace"
+      },
+      {
+        "name": "Mcleod  Mueller"
+      },
+      {
+        "name": "Day  Meyers"
+      },
+      {
+        "name": "Aguirre  Ellis"
+      },
+      {
+        "name": "Cook  Tyson"
+      }
+    ];
   }
 
 }
