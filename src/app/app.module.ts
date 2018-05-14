@@ -11,6 +11,11 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { ContactMessagerieComponent } from './contact-messagerie/contact-messagerie.component';
 import { MessagesComponent } from './messages/messages.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ConnexionService } from './connexion/connexion.service';
+import { TokenService } from './services/token.service';
+import { UtilisateurService } from './services/utilisateur.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,8 +32,14 @@ import { MessagesComponent } from './messages/messages.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ConnexionService,
+    TokenService,
+    UtilisateurService
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

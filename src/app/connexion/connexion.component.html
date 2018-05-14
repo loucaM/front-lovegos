@@ -2,10 +2,10 @@
 <script>$('#multi-select').dropdown();</script>
 <div class="connexion-container">
 
-    <div class="modal-connect" *ngIf="showModal"  >
+    <div class="modal-connect" *ngIf="showModal">
        <div><i class="close icon" (click)="onCloseModal()"></i></div> 
-        <form class="ui form">
-        <div class="ui stacked segment">
+<!--         <form class="ui form">
+ -->        <div class="ui stacked segment">
         <div class="ui grid">
             <div class="eight wide column">
                 <div class="ui grid">
@@ -87,28 +87,30 @@
             
         </div>
         </div>
-      </form>
-      </div>
+<!--       </form>
+ -->      </div>
 
 
     
     <div class="form-container" *ngIf="!showModal" > 
-        <form class="ui mini form">
+        <form [formGroup]="connexionForm" (ngSubmit)="onConnect()" class="ui mini form">
         <div class="ui stacked segment">
             <div class="field">
             <div class="ui left icon input">
                 <i class="user icon"></i>
-                <input type="text" name="email" placeholder="E-mail address">
+                <input type="text"  formControlName="login" placeholder="Login">
             </div>
             </div>
             <div class="field">
             <div class="ui left icon input">
                 <i class="lock icon"></i>
-                <input type="password" name="password" placeholder="Password">
+                <input type="password" formControlName="password" placeholder="Password">
             </div>
             </div>
             <div class="ui fluid large teal submit button">
-                <a routerLink="/suggestion" class="link-connect">Login</a>       
+                <button class="ui primary button" type="submit">
+                        Connexion
+                </button>
             </div>
         </div>
     
