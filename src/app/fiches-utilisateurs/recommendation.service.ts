@@ -6,37 +6,37 @@ import { TokenService } from '../services/token.service';
 
 
 @Injectable()
-export class RecommendationsService implements OnInit {
+export class RecommendationsService {
     userToken: any;
-    ngOnInit() {
-        this.userToken = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'Auth-token': this.userToken
-        })
-      };
+
+    utilisateurs: any;
+
+    getUtilisateur() {
+        console.log("Utilisateur Service utilisateurs ->");
+        console.log(this.utilisateurs)
+        console.log("Utilisateur Service, utilisateurs.utilisateurs ->");
+        console.log(this.utilisateurs.utilisateurs)
+        return this.utilisateurs.utilisateurs;
+
     }
 
-    utilisateurs;
-
-
- 
-url = "http://localhost:3000/lovegos/recommandations";
+    url = "http://localhost:3000/lovegos/recommandations";
     constructor(
         private http: HttpClient,
         private tokenService: TokenService
-
-        
-    ) {}
+    ) { }
 
     getRecommendations() {
-
-        let observable =  this.http.get<Utilisateur[]>(this.url, this.userToken);
-        observable.subscribe( 
+        console.log(this.tokenService.headerObject());
+        let observable = this.http.get<Utilisateur[]>(this.url, { headers: this.tokenService.headerObject() });
+        observable.subscribe(
             res => {
-                    this.utilisateurs = res ;
-                    console.log(res);
-            }, 
+                this.utilisateurs = res;
+                console.log("res observalbe");
+                console.log(res) ;
+                console.log("observable utilisaeurs");
+                console.log(this.utilisateurs) ;
+            },
             err => {
                 console.log(err)
             }

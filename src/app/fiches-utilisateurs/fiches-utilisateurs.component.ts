@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core/src/metadata/di';
 import { RecommendationsService } from './recommendation.service';
+import { Utilisateur } from '../models/utilisateur';
 
 @Component({
   selector: 'app-fiches-utilisateurs',
@@ -8,7 +9,7 @@ import { RecommendationsService } from './recommendation.service';
   styleUrls: ['./fiches-utilisateurs.component.css']
 })
 export class FichesUtilisateursComponent implements OnInit {
-  people: any [];
+  people: any;
   
   showMessage: boolean  [] = []; 
 
@@ -18,8 +19,7 @@ export class FichesUtilisateursComponent implements OnInit {
     } else {
       this.showMessage[index] = false ;
     }
-    console.log(index);
-    console.log(this.showMessage[index]);
+
 
 }
   constructor(
@@ -27,13 +27,18 @@ export class FichesUtilisateursComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.recommendationsService.getRecommendations();
-    this.people =  this.recommendationsService.utilisateurs ;
-    this.showMessage.length = this.people.length;
+    this.recommendationsService.getRecommendations(); 
+    setTimeout(() => {
+           this.people =  this.recommendationsService.getUtilisateur() ;
+    }, 1000);
+
+    console.log("people");
+   console.log(this.people);
+/*     this.showMessage.length = this.people.length;
     
     for(var i = 0 ; i< this.people.length ; ++i){
       this.showMessage[i] = false ;
-    }
+    } */
   
   }
 

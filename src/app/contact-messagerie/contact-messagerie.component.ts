@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactMessagerieService } from './contact-messagerie.service';
 
 @Component({
   selector: 'app-contact-messagerie',
@@ -7,27 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactMessagerieComponent implements OnInit {
 
-  personnes: any [];
-  constructor() { }
+  conversations: any ;
+  constructor(
+    private contactMessagerieService: ContactMessagerieService
+  ) { }
 
   ngOnInit() {
-    this.personnes =  [
-      {
-        "name": "Douglas  Pace"
-      },
-      {
-        "name": "Mcleod  Mueller"
-      },
-      {
-        "name": "Day  Meyers"
-      },
-      {
-        "name": "Aguirre  Ellis"
-      },
-      {
-        "name": "Cook  Tyson"
-      }
-    ];
+   this.conversations = this.contactMessagerieService.getConversations();
+   console.log(this.conversations);
   }
 
 }

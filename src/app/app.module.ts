@@ -18,6 +18,7 @@ import { UtilisateurService } from './services/utilisateur.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MonProfilComponent } from './mon-profil/mon-profil.component';
 import { RecommendationsService } from './fiches-utilisateurs/recommendation.service';
+import { ContactMessagerieService } from './contact-messagerie/contact-messagerie.service';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { RecommendationsService } from './fiches-utilisateurs/recommendation.ser
     ConnexionService,
     TokenService,
     UtilisateurService,
-    RecommendationsService  
+    RecommendationsService,
+    ContactMessagerieService  
    ],
   bootstrap: [AppComponent]
 })

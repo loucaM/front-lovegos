@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
-import * as $ from 'jquery' ;
 import { ConnexionService } from './connexion.service';
 
 @Component({
@@ -38,13 +37,11 @@ export class ConnexionComponent implements  OnInit {
 
   onShowModal(){
     this.showModal = true ;
-    console.log("showModal");
   }
 
   onCloseModal()
  {
    this.showModal = false ; 
-    console.log("showModal");
  }
   ngOnInit() {
     
