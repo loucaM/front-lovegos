@@ -31,6 +31,7 @@ export class ConnexionComponent implements  OnInit {
     this.formModel = this.connexionForm.value;
     this.connexionService.connect(this.formModel.login, this.formModel.password);
     console.log(this.formModel.login + " " + this.formModel.password)
+    
    }
 
   showModal: boolean = false ;

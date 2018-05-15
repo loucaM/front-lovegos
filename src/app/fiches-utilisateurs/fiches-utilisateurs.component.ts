@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core/src/metadata/di';
+import { RecommendationsService } from './recommendation.service';
 
 @Component({
   selector: 'app-fiches-utilisateurs',
@@ -21,26 +22,13 @@ export class FichesUtilisateursComponent implements OnInit {
     console.log(this.showMessage[index]);
 
 }
-  constructor() { }
+  constructor(
+    private recommendationsService: RecommendationsService
+  ) { }
 
   ngOnInit() {
-    this.people =  [
-      {
-        "name": "Douglas  Pace"
-      },
-      {
-        "name": "Mcleod  Mueller"
-      },
-      {
-        "name": "Day  Meyers"
-      },
-      {
-        "name": "Aguirre  Ellis"
-      },
-      {
-        "name": "Cook  Tyson"
-      }
-    ];
+    this.recommendationsService.getRecommendations();
+    this.people =  this.recommendationsService.utilisateurs ;
     this.showMessage.length = this.people.length;
     
     for(var i = 0 ; i< this.people.length ; ++i){

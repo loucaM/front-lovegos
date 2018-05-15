@@ -16,6 +16,8 @@ import { ConnexionService } from './connexion/connexion.service';
 import { TokenService } from './services/token.service';
 import { UtilisateurService } from './services/utilisateur.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MonProfilComponent } from './mon-profil/mon-profil.component';
+import { RecommendationsService } from './fiches-utilisateurs/recommendation.service';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     ConnexionComponent,
     ContactMessagerieComponent,
-    MessagesComponent
+    MessagesComponent,
+    MonProfilComponent
 
   ],
   imports: [
@@ -38,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     ConnexionService,
     TokenService,
-    UtilisateurService
+    UtilisateurService,
+    RecommendationsService  
    ],
   bootstrap: [AppComponent]
 })

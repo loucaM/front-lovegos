@@ -1,8 +1,5 @@
 import { GeoLoc } from "./geoLoc";
-
-
-
-export class Utilisteur {
+export class Utilisateur {
     constructor(
         public id: number,
         public dateNaissance: Date,
