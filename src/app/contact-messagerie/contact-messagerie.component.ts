@@ -8,14 +8,19 @@ import { ContactMessagerieService } from './contact-messagerie.service';
 })
 export class ContactMessagerieComponent implements OnInit {
 
-  conversations: any ;
+  conversations: any;
   constructor(
     private contactMessagerieService: ContactMessagerieService
   ) { }
 
-  ngOnInit() {
-   this.conversations = this.contactMessagerieService.getConversations();
-   console.log(this.conversations);
-  }
 
+  ngOnInit() {
+    this.contactMessagerieService.getConversations();
+    setTimeout(() => {
+      this.conversations = this.contactMessagerieService.conversations;
+    }, 1000);
+     console.log("conversations, contact messagerie");
+    console.log(this.conversations);
+
+  }
 }

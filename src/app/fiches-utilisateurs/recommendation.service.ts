@@ -12,10 +12,6 @@ export class RecommendationsService {
     utilisateurs: any;
 
     getUtilisateur() {
-        console.log("Utilisateur Service utilisateurs ->");
-        console.log(this.utilisateurs)
-        console.log("Utilisateur Service, utilisateurs.utilisateurs ->");
-        console.log(this.utilisateurs.utilisateurs)
         return this.utilisateurs.utilisateurs;
 
     }
@@ -32,10 +28,6 @@ export class RecommendationsService {
         observable.subscribe(
             res => {
                 this.utilisateurs = res;
-                console.log("res observalbe");
-                console.log(res) ;
-                console.log("observable utilisaeurs");
-                console.log(this.utilisateurs) ;
             },
             err => {
                 console.log(err)

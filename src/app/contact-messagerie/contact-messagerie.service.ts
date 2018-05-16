@@ -12,7 +12,8 @@ export class ContactMessagerieService {
     conversations: any;
 
 
-    url = "http://localhost:3000/lovegos/conversation/:42";
+    url = "http://localhost:3000/lovegos/conversations";
+    urlNewConversation = "http://localhost:3000/lovegos/new-conversation";
     constructor(
         private http: HttpClient,
         private tokenService: TokenService
@@ -24,12 +25,32 @@ export class ContactMessagerieService {
         observable.subscribe(
             res => {
                 this.conversations = res;
+                console.log("res conversations : ");
+                console.log(this.conversations);
             },
             err => {
                 console.log(err)
             }
         );
-
     }
 
+    createConversation(id: number []) {
+        let observable =  this.http.post<any>(this.urlNewConversation, id,  { headers: this.tokenService.headerObject() });
+        observable.subscribe( 
+            res => {
+                console.log( res);
+                if (res.status === "OK"){
+                    console.log("conversation créée");
+                }
+                else {
+                }
+            }, 
+            err => {
+                console.log(err)
+            }
+        );
+    }
 }
+    
+
+      

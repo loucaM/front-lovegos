@@ -16,12 +16,10 @@ url = "http://localhost:3000/lovegos/login";
     ) {}
 
     connect(login: string, password: string) {
-
         let connexionBody = {
             'login': login,
             'password': password
         }
-
         let observable =  this.http.post<any>(this.url, connexionBody);
         observable.subscribe( 
             res => {
@@ -35,14 +33,11 @@ url = "http://localhost:3000/lovegos/login";
                     console.log( this.tokenService.token);
                 }
                 else {
-
                 }
             }, 
             err => {
                 console.log(err)
             }
         );
-
     }
-
 }

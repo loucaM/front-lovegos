@@ -1,8 +1,7 @@
 <div class="ui huge aligned divided list">
-    <div class="item"  >
+    <div class="item" *ngFor="let conversation of conversations"   >
       <div class="right floated content">
-          <div class="ui animated blue button">
-             
+          <div class="ui animated blue button"> 
               <div class="visible content">
                Contact
               </div>
@@ -16,7 +15,7 @@
         </div> 
       <img class="ui avatar image" src="./assets/images/homme.jpg">
       <div class="content">
-        <a class="header">{{conversations.titre}}</a>
+        <a class="header">{{conversation.titre}}</a>
       </div>
     </div>
   </div>

@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MonProfilComponent } from './mon-profil/mon-profil.component';
 import { RecommendationsService } from './fiches-utilisateurs/recommendation.service';
 import { ContactMessagerieService } from './contact-messagerie/contact-messagerie.service';
+import { LoveService } from './services/love.service';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ContactMessagerieService } from './contact-messagerie/contact-messageri
     TokenService,
     UtilisateurService,
     RecommendationsService,
-    ContactMessagerieService  
+    ContactMessagerieService,
+    LoveService  
    ],
   bootstrap: [AppComponent]
 })
