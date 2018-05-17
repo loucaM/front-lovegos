@@ -6,9 +6,11 @@ import { TokenService } from "../services/token.service";
 @Injectable()
 export class MessagesService {
 
-    public idMessage: number;
+    public conversationCourante: any
     public messages: any;
     url = "http://localhost:3000/lovegos/conversation/";
+    urlsendMessage = "http://localhost:3000/lovegos/message";
+    
 
     constructor(
         private http: HttpClient,
@@ -17,19 +19,38 @@ export class MessagesService {
     ) { }
 
     getConversation(id: number) {
-        this.url = this.url + id;
-        console.log(this.url);
-        let observable = this.http.get<any>(this.url, { headers: this.tokenService.headerObject() });
+        let callUrl = this.url + id;
+        console.log(callUrl);
+        let observable = this.http.get<any>(callUrl, { headers: this.tokenService.headerObject() });
         observable.subscribe(
             res => {
                 this.messages = res;
-                console.log("messages");
-                console.log(this.messages);
-                
             },
             err => {
                 console.log(err)
             }
         );
     }
+
+    chargerConversation(idConv){
+        this.getConversation(idConv);
+      }
+
+      envoiMessage(body) {
+        let observable =  this.http.post<any>(this.urlsendMessage, body,  { headers: this.tokenService.headerObject() });
+        observable.subscribe( 
+            res => {
+                console.log( res);
+                if (res.status === "OK"){
+                    console.log("message sent");
+                    this.chargerConversation(body.idConversationd);
+                }
+                else {
+                }
+            }, 
+            err => {
+                console.log(err)
+            }
+        );
+      }
 }

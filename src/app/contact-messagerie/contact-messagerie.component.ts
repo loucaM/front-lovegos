@@ -15,10 +15,10 @@ export class ContactMessagerieComponent implements OnInit {
     private messagesService: MessagesService
   ) { }
 
-  sendIdConversation(id: number){
+  afficherConversation(id: number){
     console.log("id conversation");
     console.log(id);
-    this.messagesService.idMessage = id;
+    this.messagesService.chargerConversation(id);
   }
 
   ngOnInit() {

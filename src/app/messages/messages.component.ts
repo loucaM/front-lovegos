@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from './messages.service';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+import { UtilisateurService } from '../services/utilisateur.service';
 
 @Component({
   selector: 'app-messages',
@@ -7,18 +9,44 @@ import { MessagesService } from './messages.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
+  
+  formModel ;
+  messageForm: FormGroup;
 
   messages ;
-  idMessage: number;
   constructor(
-    private messagesService: MessagesService
-  ) { }
+    private messagesService: MessagesService,
+    private builder: FormBuilder,
+    private userService: UtilisateurService
+  ) { 
+    this.createForm();
+  }
+
+  createForm() {
+    this.messageForm = this.builder.group({
+      'contenu': new FormControl ( null, Validators.required),
+    });
+   }
+
+   sendMessage(idConv) {
+     console.log("id conv message envoi");
+     console.log(idConv);
+     this.formModel = this.messageForm.value;
+    let body = {
+      idConversation: idConv,
+      message : {
+        contenu: this.formModel.contenu,
+        dateEnvoi: new Date,
+        auteur: this.userService.getUtilisateur().nom
+      }
+    };
+    this.messagesService.envoiMessage(body);
+    this.messageForm.reset();
+   }
 
   ngOnInit() {
-    this.idMessage = this.messagesService.idMessage;
-    console.log("id messages");
-    console.log(this.idMessage);
-    this.messages = this.messagesService.getConversation(this.idMessage);
-    console.log(this.messages);
+    //vAfficher la première conversation ?
   }
+
+  
 }

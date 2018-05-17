@@ -2,52 +2,42 @@
 <div class="ui grid">
   <div class="two wide column"></div>
   <div class="ten wide column">
-    <div *ngFor="let properties of messages; let i = index">
-    <div class="ui comments">
-      <h3 class="ui dividing header">{{properties.titre}}</h3>
-      <div *ngFor="let message of properties.messages"  class="comment">
-        <a class="avatar">
-          <img src="/images/avatar/small/matt.jpg">
-        </a>
-        <div class="content">
-          <a class="author">
-            {{message.auteur.nom}} {{message.auteur.prenom}}
+    <h3 class="ui dividing header">{{ messagesService.messages.titre}}</h3>
+    <div *ngFor="let msg of messagesService.messages.messages">
+      <div class="ui comments">
+
+        <div class="comment">
+          <a class="avatar">
+            <img src="/images/avatar/small/matt.jpg">
           </a>
-          <div class="metadata">
-            <span class="date">{{message.dateEnvoi | date:'fullDate'}}</span>
+          <div class="content">
+            <a class="author">
+              {{msg.auteur.nom}} {{msg.auteur.prenom}}
+            </a>
+            <div class="metadata">
+              <span class="date">{{msg.dateEnvoi | date:'fullDate'}}</span>
+            </div>
           </div>
           <div class="text">
-           {{message.contenu}}
+            {{msg.contenu}}
           </div>
           <div class="actions">
             <a class="reply">Reply</a>
           </div>
         </div>
       </div>
-     
     </div>
-  </div> 
-<!--   <form class="ui reply form">
-        <div class="field">
-          <textarea></textarea>
-        </div>
-        <div class="ui blue labeled submit icon button">
-          <i class="icon edit"></i> Add Reply
-        </div>
-      </form> -->
+    <form [formGroup]="messageForm" (ngSubmit)="sendMessage(messagesService.messages.id)" class="ui reply form">
+      <div class="field">
+        <textarea formControlName="contenu"></textarea>
+      </div>
+      <button class="ui primary button" type="submit">
+          Envoyer
+      </button>
+    </form>
+
   </div>
   <div class="four wide column">
     <app-contact-messagerie></app-contact-messagerie>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
