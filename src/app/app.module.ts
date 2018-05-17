@@ -20,6 +20,7 @@ import { MonProfilComponent } from './mon-profil/mon-profil.component';
 import { RecommendationsService } from './fiches-utilisateurs/recommendation.service';
 import { ContactMessagerieService } from './contact-messagerie/contact-messagerie.service';
 import { LoveService } from './services/love.service';
+import { MessagesService } from './messages/messages.service';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { LoveService } from './services/love.service';
     UtilisateurService,
     RecommendationsService,
     ContactMessagerieService,
-    LoveService  
+    LoveService,
+    MessagesService  
    ],
   bootstrap: [AppComponent]
 })

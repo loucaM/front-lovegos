@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagesService } from './messages.service';
 
 @Component({
   selector: 'app-messages',
@@ -7,48 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  messages : any [];
-  constructor() { }
+  messages ;
+  idMessage: number;
+  constructor(
+    private messagesService: MessagesService
+  ) { }
 
-  ngOnInit() {  
-    this.messages = [
-      {
-        "id": 5,
-        "titre":"Aimons les poires",
-        "messages" : [
-          {
-          "contenu": "J'aime me beurrer la biscotte",
-          "dateEnvoi": "2012-04-23T18:25:43.511Z",
-          "dateLecture": "2012-04-23T19:25:43.511Z",
-            "auteur" : {
-              "nom":"Loveur",
-              "prenom":"Hitch",
-              "photo":"./assets/images/homme.jpg"
-              }
-            },
-            {
-              "contenu": "J'aime me beurrer la biscotte",
-              "dateEnvoi": "2012-04-23T18:25:43.511Z",
-              "dateLecture": "2012-04-23T19:25:43.511Z",
-                "auteur" : {
-                  "nom":"Loveur",
-                  "prenom":"Hitch",
-                  "photo":"./assets/images/homme.jpg"
-                  }
-            }, 
-            {
-              "contenu": "J'aime me beurrer la biscotte",
-              "dateEnvoi": "2012-04-23T18:25:43.511Z",
-              "dateLecture": "2012-04-23T19:25:43.511Z",
-                "auteur" : {
-                  "nom":"Loveur",
-                  "prenom":"Hitch",
-                  "photo":"./assets/images/homme.jpg"
-                  }
-            }
-        ]
-      }
-  ];
-console.log(this.messages);
+  ngOnInit() {
+    this.idMessage = this.messagesService.idMessage;
+    console.log("id messages");
+    console.log(this.idMessage);
+    this.messages = this.messagesService.getConversation(this.idMessage);
+    console.log(this.messages);
   }
 }

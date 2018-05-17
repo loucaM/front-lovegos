@@ -8,9 +8,7 @@ import { TokenService } from '../services/token.service';
 @Injectable()
 export class ContactMessagerieService {
     userToken: any;
-
     conversations: any;
-
 
     url = "http://localhost:3000/lovegos/conversations";
     urlNewConversation = "http://localhost:3000/lovegos/new-conversation";
@@ -20,13 +18,10 @@ export class ContactMessagerieService {
     ) { }
 
     getConversations() {
-        console.log(this.tokenService.headerObject());
         let observable = this.http.get<any>(this.url, { headers: this.tokenService.headerObject() });
         observable.subscribe(
             res => {
                 this.conversations = res;
-                console.log("res conversations : ");
-                console.log(this.conversations);
             },
             err => {
                 console.log(err)
@@ -40,7 +35,6 @@ export class ContactMessagerieService {
             res => {
                 console.log( res);
                 if (res.status === "OK"){
-                    console.log("conversation créée");
                 }
                 else {
                 }

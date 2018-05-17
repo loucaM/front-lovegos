@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactMessagerieService } from './contact-messagerie.service';
+import { MessagesService } from '../messages/messages.service';
 
 @Component({
   selector: 'app-contact-messagerie',
@@ -10,17 +11,20 @@ export class ContactMessagerieComponent implements OnInit {
 
   conversations: any;
   constructor(
-    private contactMessagerieService: ContactMessagerieService
+    private contactMessagerieService: ContactMessagerieService,
+    private messagesService: MessagesService
   ) { }
 
+  sendIdConversation(id: number){
+    console.log("id conversation");
+    console.log(id);
+    this.messagesService.idMessage = id;
+  }
 
   ngOnInit() {
     this.contactMessagerieService.getConversations();
     setTimeout(() => {
       this.conversations = this.contactMessagerieService.conversations;
     }, 1000);
-     console.log("conversations, contact messagerie");
-    console.log(this.conversations);
-
   }
 }
