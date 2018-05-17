@@ -8,11 +8,11 @@
 
         <div class="comment">
           <a class="avatar">
-            <img src="/images/avatar/small/matt.jpg">
+            <img src="{{msg.auteur.photo}}">
           </a>
           <div class="content">
             <a class="author">
-              {{msg.auteur.nom}} {{msg.auteur.prenom}}
+                {{msg.auteur.prenom}} {{msg.auteur.nom}}
             </a>
             <div class="metadata">
               <span class="date">{{msg.dateEnvoi | date:'fullDate'}}</span>

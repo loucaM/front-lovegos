@@ -7,9 +7,9 @@ export class Utilisateur {
         public photo: string,
         public nom: string,
         public prenom: string,
-        public motifs: string [],
+        public motif: string [],
         public trancheAgeRecherche: string [1],
-        public genreRecherches: string [],
+        public genresRecherches: string [],
         public presentation: string,
         public genre: string 
     ) {}

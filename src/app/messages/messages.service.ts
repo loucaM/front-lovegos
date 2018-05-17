@@ -11,12 +11,10 @@ export class MessagesService {
     public messages: any;
     url = Urls.server + "lovegos/conversation/";
     urlsendMessage = Urls.server + "lovegos/message";
-    
 
     constructor(
         private http: HttpClient,
         private tokenService: TokenService
-
     ) { }
 
     getConversation(id: number) {
@@ -26,6 +24,8 @@ export class MessagesService {
         observable.subscribe(
             res => {
                 this.messages = res;
+                console.log('Conversation chargée : ');
+                console.log(res);
             },
             err => {
                 console.log(err)
@@ -42,10 +42,11 @@ export class MessagesService {
         observable.subscribe( 
             res => {
                 console.log( res);
-                if (res.status === "OK"){
-                    console.log("message sent");
-                    this.chargerConversation(body.idConversationd);
-                }
+                if (res.success === "OK"){
+                    console.log("idConversation");
+                    console.log(body.idConversation);
+                     this.chargerConversation(body.idConversation);
+                 }
                 else {
                 }
             }, 

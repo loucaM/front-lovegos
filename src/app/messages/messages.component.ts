@@ -37,9 +37,11 @@ export class MessagesComponent implements OnInit {
       message : {
         contenu: this.formModel.contenu,
         dateEnvoi: new Date,
-        auteur: this.userService.getUtilisateur().nom
+        auteur: this.userService.userConnected.id
       }
     };
+    console.log("body Message component");
+    console.log(body);
     this.messagesService.envoiMessage(body);
     this.messageForm.reset();
    }

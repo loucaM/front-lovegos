@@ -1,12 +1,28 @@
 <div class="espacement"></div>
 <div class="ui grid , fond">
+
   <div class="ten wide column">
+    <div class="modal-conversation" *ngIf="showRecommandation">
+           <i class="close icon" (click)="onCloseModal()"></i>
+        <div></div>
+        <!--    <form> -->
+   
+            <div class="ui action input textArea">
+                <input placeholder="Titre" type="text">
+                <button class="ui button blue">valider</button>
+              </div>
+       
+        <!--      </form> -->
+   
+    </div>
+
+
     <div *ngFor="let person of people; let i = index" (click)="onShowPresentation(i)">
       <div class="spacer"></div>
       <div class="ui cards , containerCard">
         <div class="card">
           <div class="image">
-            <img src="./assets/images/homme.jpg">
+            <img src="{{person.photo}}">
           </div>
           <div class="content">
             <div class="header"> {{person.prenom}} {{person.nom}}</div>
@@ -16,7 +32,7 @@
           </div>
           <div class="extra content">
             <div class="left">
-              <button class="ui blue button" (click)="createConversation(person.id)">
+              <button class="ui blue button" (click)="createConversation()">
                 <i class="comments outline icon"></i>
                 contact
               </button>
@@ -30,8 +46,17 @@
         <div id="outerspacingfiche"></div>
       </div>
     </div>
+
   </div>
-  <div class="four wide column , chat">
-    <app-contact-messagerie></app-contact-messagerie>
+
+  <div class="four wide column">
+    <div class="chat">
+      <app-contact-messagerie></app-contact-messagerie>
+    </div>
   </div>
 </div>
+
+
+
+<!--         <form class="ui form">
+-->

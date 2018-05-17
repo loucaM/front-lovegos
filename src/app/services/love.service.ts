@@ -9,12 +9,31 @@ import { Urls } from '../urls';
 @Injectable()
 export class LoveService {
 
+    lesLoves: any;
 url = Urls.server + "lovegos/love";
+urlGetLove = Urls.server + "lovegos/loves";
+
     constructor(
         private http: HttpClient,
         private utilsateurService: UtilisateurService,
         private tokenService: TokenService
     ) {}
+
+    getLove() {
+        console.log(this.tokenService.headerObject());
+        let observable = this.http.get<Utilisateur[]>(this.urlGetLove, { headers: this.tokenService.headerObject() });
+        observable.subscribe(
+            res => {
+                console.log("les Loves");
+                console.log(res);
+                this.lesLoves = res;
+            },
+            err => {
+                console.log(err)
+            }
+        );
+      
+    }
 
     sendLove(connexionBody: Object) {
 

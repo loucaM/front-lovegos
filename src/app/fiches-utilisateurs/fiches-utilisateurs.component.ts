@@ -16,6 +16,7 @@ export class FichesUtilisateursComponent implements OnInit {
 
   showMessage: boolean[] = [];
   participants: number [] = [];
+  showRecommandation;
 
   onShowPresentation(index: number) {
     if (this.showMessage[index] === false) {
@@ -33,12 +34,14 @@ export class FichesUtilisateursComponent implements OnInit {
   ) { }
 
 
-  createConversation(id: number) {
-    console.log("id utilisisateur");
+  createConversation() {
+    console.log("Show conversation")
+  /*   console.log("id utilisisateur");
     console.log(id);
     
     this.participants.push(id);
-    this.contactMessagerieService.createConversation(this.participants);
+    this.contactMessagerieService.createConversation(this.participants); */
+    this.showRecommandation = true;
   }
 
   sendLove(idLove: number) {
@@ -56,6 +59,7 @@ export class FichesUtilisateursComponent implements OnInit {
 
 
   ngOnInit() {
+    this.showRecommandation = false;
     this.recommendationsService.getRecommendations();
     setTimeout(() => {
       this.people = this.recommendationsService.getUtilisateur();
