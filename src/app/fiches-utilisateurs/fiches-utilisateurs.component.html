@@ -1,8 +1,9 @@
 <div class="espacement"></div>
-<div class="ui grid">
+<div class="ui grid , fond">
   <div class="ten wide column">
     <div *ngFor="let person of people; let i = index" (click)="onShowPresentation(i)">
-      <div class="ui cards">
+      <div class="spacer"></div>
+      <div class="ui cards , containerCard">
         <div class="card">
           <div class="image">
             <img src="./assets/images/homme.jpg">
@@ -30,7 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="six wide column">
+  <div class="four wide column , chat">
     <app-contact-messagerie></app-contact-messagerie>
   </div>
 </div>

@@ -1,3 +1,23 @@
 .espacement {
-    margin-top: 30px;
+    margin-top: 7em;
+}
+
+.fiche {
+    margin-left: 3em;
+}
+
+.chatcontainer {
+    padding: 2em;
+    margin-left: 7em;
+    background-color: gainsboro;
+}
+
+.imageprofil, .monprofil {
+    background-color: gainsboro;
+}
+
+body {
+    background-image: url("/assets/images/greywallpaper.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 }
