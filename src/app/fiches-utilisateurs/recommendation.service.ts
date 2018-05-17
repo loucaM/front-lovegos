@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { UtilisateurService } from '../services/utilisateur.service';
 import { Utilisateur } from '../models/utilisateur';
 import { TokenService } from '../services/token.service';
+import { Urls } from '../urls';
 
 
 @Injectable()
@@ -16,7 +17,7 @@ export class RecommendationsService {
 
     }
 
-    url = "http://localhost:3000/lovegos/recommandations";
+    url = Urls.server + "lovegos/recommandations";
     constructor(
         private http: HttpClient,
         private tokenService: TokenService

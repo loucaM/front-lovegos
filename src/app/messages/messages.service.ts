@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpEvent } from '@angular/common/http';
 import { TokenService } from "../services/token.service";
+import { Urls } from "../urls";
 
 
 @Injectable()
@@ -8,8 +9,8 @@ export class MessagesService {
 
     public conversationCourante: any
     public messages: any;
-    url = "http://localhost:3000/lovegos/conversation/";
-    urlsendMessage = "http://localhost:3000/lovegos/message";
+    url = Urls.server + "lovegos/conversation/";
+    urlsendMessage = Urls.server + "lovegos/message";
     
 
     constructor(

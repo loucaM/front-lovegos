@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { UtilisateurService } from '../services/utilisateur.service';
 import { Utilisateur } from '../models/utilisateur';
 import { TokenService } from '../services/token.service';
+import { Urls } from '../urls';
 
 
 @Injectable()
 export class LoveService {
 
-url = "http://localhost:3000/lovegos/love";
+url = Urls.server + "lovegos/love";
     constructor(
         private http: HttpClient,
         private utilsateurService: UtilisateurService,

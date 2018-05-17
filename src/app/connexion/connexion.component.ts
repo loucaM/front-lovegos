@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { ConnexionService } from './connexion.service';
+import { UtilisateurService } from '../services/utilisateur.service';
+import { TokenService } from '../services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -14,7 +17,10 @@ export class ConnexionComponent implements  OnInit {
 
   constructor ( 
     private builder: FormBuilder,
-    private connexionService: ConnexionService
+    private connexionService: ConnexionService,
+    private utilsateurService: UtilisateurService,
+    private tokenService: TokenService,
+    private router: Router
   ) {     
      this.createForm();
     }
@@ -28,8 +34,29 @@ export class ConnexionComponent implements  OnInit {
 
    onConnect() {
     this.formModel = this.connexionForm.value;
-    this.connexionService.connect(this.formModel.login, this.formModel.password);
+    var observable = this.connexionService.connect(this.formModel.login, this.formModel.password);
     console.log(this.formModel.login + " " + this.formModel.password)
+
+    observable.subscribe( 
+      res => {
+          console.log( res);
+          console.log(res.utilisateur);
+          if (res.status === "OK"){
+              this.utilsateurService.userConnected = res.utilisateur ;
+              this.tokenService.setToken(res.token);
+              console.log(this.utilsateurService.userConnected.nom);
+              console.log("LE TOKEEEEEEEN");
+              console.log( this.tokenService.token);
+
+              this.router.navigateByUrl("/monprofil");
+          }
+          else {
+            console.log('ECHEC CONNEXION');
+          }
+      }, 
+      err => {
+          console.log(err)
+      });
     
    }
 
