@@ -4,6 +4,8 @@ import { UtilisateurService } from '../services/utilisateur.service';
 import { Utilisateur } from '../models/utilisateur';
 import { TokenService } from '../services/token.service';
 import { Urls } from '../urls';
+import { Router } from '@angular/router';
+import { MessagesService } from '../messages/messages.service';
 
 
 @Injectable()
@@ -15,7 +17,9 @@ export class ContactMessagerieService {
     urlNewConversation = Urls.server + "lovegos/new-conversation";
     constructor(
         private http: HttpClient,
-        private tokenService: TokenService
+        private tokenService: TokenService,
+        private router: Router,
+        private messageService: MessagesService
     ) { }
 
     getConversations() {
@@ -30,14 +34,18 @@ export class ContactMessagerieService {
         );
     }
 
-    createConversation(id: number []) {
-        let observable =  this.http.post<any>(this.urlNewConversation, id,  { headers: this.tokenService.headerObject() });
+    createConversation(body) {
+        let observable =  this.http.post<any>(this.urlNewConversation, body,  { headers: this.tokenService.headerObject() });
         observable.subscribe( 
             res => {
                 console.log( res);
-                if (res.status === "OK"){
+                if (res.success === "OK"){
+                    this.messageService.chargerConversation(res.idConversation);
+                    this.router.navigateByUrl;
+                    this.router.navigateByUrl("/messagerie");
                 }
                 else {
+                    console.log("ECHEC MESSAGERIE");
                 }
             }, 
             err => {

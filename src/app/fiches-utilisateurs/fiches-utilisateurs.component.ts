@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core/src/metadata/di';
 import { RecommendationsService } from './recommendation.service';
 import { Utilisateur } from '../models/utilisateur';
 import { ContactMessagerieService } from '../contact-messagerie/contact-messagerie.service';
 import { UtilisateurService } from '../services/utilisateur.service';
 import { LoveService } from '../services/love.service';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-fiches-utilisateurs',
@@ -14,9 +15,13 @@ import { LoveService } from '../services/love.service';
 export class FichesUtilisateursComponent implements OnInit {
   people: any;
 
+  formModel ;
+  createConvForm: FormGroup;
+
   showMessage: boolean[] = [];
   participants: number [] = [];
   showRecommandation;
+  hisId;
 
   onShowPresentation(index: number) {
     if (this.showMessage[index] === false) {
@@ -30,11 +35,19 @@ export class FichesUtilisateursComponent implements OnInit {
     private recommendationsService: RecommendationsService,
     private contactMessagerieService: ContactMessagerieService,
     private utilisateurService: UtilisateurService,
-    private loveService: LoveService
-  ) { }
+    private loveService: LoveService,
+    private builder: FormBuilder,
+    
+  ) {   this.createForm();}
+
+  createForm() {
+    this.createConvForm = this.builder.group({
+      'titre': new FormControl ( null, Validators.required),
+    });
+   }
 
 
-  createConversation() {
+  createConversation(hisId) {
     console.log("Show conversation")
   /*   console.log("id utilisisateur");
     console.log(id);
@@ -42,6 +55,25 @@ export class FichesUtilisateursComponent implements OnInit {
     this.participants.push(id);
     this.contactMessagerieService.createConversation(this.participants); */
     this.showRecommandation = true;
+      this.hisId = hisId;
+  }
+
+
+  onCreateConv(){
+    this.formModel = this.createConvForm.value;
+    let body = {
+      titre: this.formModel.titre,
+      participants : [this.utilisateurService.userConnected.id ,this.hisId]
+    }
+    console.log(body);
+    this.contactMessagerieService.createConversation(body);
+  }
+
+  onCloseModal() {
+    let myId = this.utilisateurService.userConnected.id;
+    console.log("myId id : "+ myId);
+    console.log("his id  "+this.hisId);
+
   }
 
   sendLove(idLove: number) {

@@ -1,19 +1,15 @@
 <div class="espacement"></div>
 <div class="ui grid , fond">
 
-  <div class="ten wide column">
+  <div class="seven wide column">
     <div class="modal-conversation" *ngIf="showRecommandation">
-           <i class="close icon" (click)="onCloseModal()"></i>
-        <div></div>
-        <!--    <form> -->
-   
-            <div class="ui action input textArea">
-                <input placeholder="Titre" type="text">
-                <button class="ui button blue">valider</button>
-              </div>
-       
-        <!--      </form> -->
-   
+      <i class="close icon"></i>
+      <form [formGroup]="createConvForm" (ngSubmit)="onCreateConv()">
+        <div class="ui action input textArea">
+          <input  formControlName="titre" placeholder="Titre" type="text"> {{titre}}
+          <button class="ui button blue" type="submit">Créer conversation</button>
+        </div>
+      </form>
     </div>
 
 
@@ -32,7 +28,7 @@
           </div>
           <div class="extra content">
             <div class="left">
-              <button class="ui blue button" (click)="createConversation()">
+              <button class="ui blue button" (click)="createConversation(person.id)">
                 <i class="comments outline icon"></i>
                 contact
               </button>
@@ -49,7 +45,7 @@
 
   </div>
 
-  <div class="four wide column">
+  <div class="seven wide column">
     <div class="chat">
       <app-contact-messagerie></app-contact-messagerie>
     </div>

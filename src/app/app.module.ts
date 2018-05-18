@@ -21,6 +21,7 @@ import { RecommendationsService } from './fiches-utilisateurs/recommendation.ser
 import { ContactMessagerieService } from './contact-messagerie/contact-messagerie.service';
 import { LoveService } from './services/love.service';
 import { MessagesService } from './messages/messages.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MessagesService } from './messages/messages.service';
     ConnexionComponent,
     ContactMessagerieComponent,
     MessagesComponent,
-    MonProfilComponent
+    MonProfilComponent,
+    FooterComponent
 
   ],
   imports: [
