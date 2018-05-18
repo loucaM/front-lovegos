@@ -11,6 +11,7 @@ import { LoveService } from '../services/love.service';
 })
 export class MonProfilComponent implements OnInit {
   userConnected : Utilisateur;
+  motifs : any;
   lesLove;
   constructor
   (
@@ -19,8 +20,10 @@ export class MonProfilComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.utilsateurService.userConnected.nom);
+   // console.log(this.utilsateurService.userConnected.nom);
     this.userConnected = this.utilsateurService.getUtilisateur();
+    this.motifs = this.userConnected.motif;
+    console.log(this.motifs);
     console.log(this.userConnected.nom);
     this.lesLove = this.loveService.getLove();
     

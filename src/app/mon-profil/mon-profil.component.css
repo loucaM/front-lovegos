@@ -16,6 +16,10 @@
     background-color: gainsboro;
 }
 
+.motif {
+    font-size: 16pt;
+}
+
 body {
     background-image: url("/assets/images/greywallpaper.jpg");
     background-size: cover;

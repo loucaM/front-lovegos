@@ -4,22 +4,29 @@
     <div class="espacement"></div>
     <div class="ui grid , fiche">
         <div class="five wide column , imageprofil">
-            <img class="ui centered medium image" src="./assets/images/homme.jpg">
-
-            <h2 class="ui dividing centered header">
-
-                Ma Présentation</h2>
-
-            <h5 class="ui header">{{userConnected.presentation}}</h5>
-
+            <img class="ui centered medium image" src="{{userConnected.photo}}">
         </div>
         <div class="six wide column , monprofil">
-            <h1 class="ui  header">Mon profil</h1>
+            <h1 class="ui  header">{{userConnected.nom}} {{userConnected.prenom}}</h1>
 
-            <h4 class="ui header">{{userConnected.nom}} {{userConnected.prenom}}
-                <i class="map marker alternate icon"></i>
-            </h4>
-            <p>Ma ville </p>
+            <h5 class="ui large header">Date de naissance: {{userConnected.dateNaissance | date: 'dd/MM/yyyy'}}
+            </h5>
+            <h5 class="ui large header">Genre: {{userConnected.genre}}
+            </h5>
+            <h6 class="ui medium header">Présentation :</h6>
+            <p>{{userConnected.presentation}}</p>
+            
+                <h5 class="ui large header">Mes motivations de rencontre
+                </h5>
+                <div class="ui bulleted list">
+                    <div *ngFor="let m of motifs; let i = index">
+                        <div class="item, motif">{{m}}</div>
+                    </div>
+                </div>
+                <h5 class="ui large header">Caractéristiques de recherche</h5>
+                <p class="motif">Je recherche des personnes entre {{userConnected.trancheAgeRecherche[0]}} et {{userConnected.trancheAgeRecherche[1]}} ans</p>
+
+            
         </div>
 
         <div class="four wide column , chat">
@@ -28,7 +35,9 @@
             </div>
         </div>
 
+        
     </div>
+
 </body>
 
 </html>
